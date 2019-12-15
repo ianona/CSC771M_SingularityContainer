@@ -1,0 +1,26 @@
+Bootstrap: docker
+From: ubuntu:18.04
+
+%help
+	HELP: Make sure the input files (query and reference sequences) are in the same folder as the Singularity build
+
+%files
+	pipeline.sh
+	container.py
+
+%labels
+	CREATOR Bioinfo
+
+%post
+	echo "Installing Dependencies..."
+	apt-get -qq -y update
+	apt-get -qq -y install install python g++ libz-dev bowtie2 wget samtools bwa r-base gfortran perl cpanminus last-align
+	apt-get -qq -y install python-pip
+	pip install tkinter
+
+%environment
+	# export PERL5LIB=/VirVarSeq/lib
+	# export R_LIBS_USER=/VirVarSeq/R/lib
+
+%runscript
+	python /container.py
