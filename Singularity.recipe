@@ -18,6 +18,14 @@ From: ubuntu:18.04
 	apt-get -qq -y install python-pip
 	pip install tkinter
 
+	echo "Installing Anaconda"
+	cd /tmp
+	curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+	sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+	bash Anaconda3-2019.03-Linux-x86_64.sh
+
+	conda install -c bioconda lofreq
+
 %environment
 	# export PERL5LIB=/VirVarSeq/lib
 	# export R_LIBS_USER=/VirVarSeq/R/lib
