@@ -9,3 +9,6 @@
 `singularity run <container_name>.simg`
 
 *make sure your input files are in the same directory as the Singularity container
+
+### If the SingularityContainer is not working on your machine please proceed to the Beta version ##
+`https://github.com/ianona/CSC771M_SingularityProject`
