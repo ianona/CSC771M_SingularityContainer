@@ -7,28 +7,42 @@ From: ubuntu:18.04
 %files
 	pipeline.sh
 	container.py
+	newSample1mil.fastq.gz
+        newSample1mil.fastq.gz /data
+        hxb2.fasta
+        hxb2.fasta /data
 
 %labels
 	CREATOR Bioinfo
 
 %post
 	echo "Installing Dependencies..."
-	apt-get -qq -y update
-	apt-get -qq -y install install python g++ libz-dev bowtie2 wget samtools bwa r-base gfortran perl cpanminus last-align
-	apt-get -qq -y install python-pip3
-	pip3 install tkinter
+#	apt-get -y update
+	#apt-get -y install python g++ libz-dev bowtie2 wget samtools bwa r-base gfortran perl cpanminus last-align
+	#apt-get -y install python-pip3
+	#pip3 install tkinter
 
-	echo "Installing Anaconda"
-	cd /tmp
-	curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
-	sha256sum Anaconda3-2019.03-Linux-x86_64.sh
-	bash Anaconda3-2019.03-Linux-x86_64.sh
+#	apt-get -y install git python3 python3-pip python3-tk g++ libz-dev bowtie2 samtools last-align
+ #       pip3 install tk
+	#pip3 install tkinter
 
-	conda install -c bioconda lofreq
+
+#	echo "Pulling GIT Files LOFREQ"
+#	git clone  https://github.com/ianona/CSC771M_SingularityProject.git
+  #      cd CSC771M_SingularityProject
+ #       cp Lofreq/lofreq /usr/local/bin/lofreq 
+
+#	echo "Installing Anaconda"
+#	cd /tmp
+#	curl -O https://repo.anaconda.com/archive/Anaconda3-2019.03-Linux-x86_64.sh
+#	sha256sum Anaconda3-2019.03-Linux-x86_64.sh
+#	bash Anaconda3-2019.03-Linux-x86_64.sh
+
+#	conda install -c bioconda lofreq
 
 %environment
 	# export PERL5LIB=/VirVarSeq/lib
 	# export R_LIBS_USER=/VirVarSeq/R/lib
 
 %runscript
-	python /container.py
+	python3 /container.py

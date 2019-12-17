@@ -11,21 +11,19 @@ os.chdir(dname)
 def main(ref,que):
 	print("---Pipeling start---")
 
-	subprocess.check_call([os.getcwd()+'/bowtiescript.sh', ref, que])
-
 	queryFileName = que.split("/")[-1].split(".")[0]
-	sortedbam = "sorted_"+queryFileName+".bam"
+	sortedbam = "sorted"+queryFileName+".bam"
 
 	if choice1 == "1":
 		if choice2 == "1":
-			subprocess.check_call([os.getcwd()+'/pipeline.sh',"bowtie","lofreq",ref, que])
+		    subprocess.check_call([os.getcwd()+'/pipeline.sh',"bowtie","lofreq",ref, que])
 		elif choice2 == "2":
-			subprocess.check_call([os.getcwd()+'/pipeline.sh',"bowtie","virvarseq",ref, que])
+		    subprocess.check_call[os.getcwd()+'/pipeline.sh',"bowtie","virvarseq",ref, que])
 	elif choice1 == "2":
 		if choice2 == "1":
-			subprocess.check_call([os.getcwd()+'/pipeline.sh',"last","lofreq",ref, que])
+		    subprocess.check_call([os.getcwd()+'/pipeline.sh',"last","lofreq",ref, que])
 		elif choice2 == "2":
-			subprocess.check_call([os.getcwd()+'/pipeline.sh',"last","virvarseq",ref, que])
+		    subprocess.check_call([os.getcwd()+'/pipeline.sh',"last","virvarseq",ref, que])
 
 	print("Pipeline finished!")
 
